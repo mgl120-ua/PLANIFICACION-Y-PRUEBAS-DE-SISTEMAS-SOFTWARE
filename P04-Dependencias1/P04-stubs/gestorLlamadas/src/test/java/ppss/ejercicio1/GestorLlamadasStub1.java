@@ -1,8 +1,6 @@
-package ppss;
+package ppss.ejercicio1;
 
-import ppss.ejercicio1.GestorLlamadas;
-
-public class GestorLlamadasStub extends GestorLlamadas {
+public class GestorLlamadasStub1 extends GestorLlamadas1 {
     int horaActual;
     public void setHora(int hora){
         this.horaActual = hora;

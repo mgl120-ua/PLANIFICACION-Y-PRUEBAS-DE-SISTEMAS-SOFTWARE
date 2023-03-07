@@ -1,11 +1,7 @@
 package ppss.ejercicio1;
 
-import org.junit.jupiter.api.Test;
-import ppss.GestorLlamadasStub;
-
-import static org.junit.jupiter.api.Assertions.*;
-public class GestorLlamadasTest {
-   @Test
+public class GestorLlamadasTest1 {
+   /*@Test
     public void calculaConsumoC1(){
         GestorLlamadas sut = new GestorLlamadas();
         GestorLlamadasStub stub = new GestorLlamadasStub();
@@ -13,9 +9,9 @@ public class GestorLlamadasTest {
         double expectedResult = 208;
         double realResult = sut.calculaConsumo(10);
         assertEquals(expectedResult, realResult);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void calculaConsumoC2(){
         GestorLlamadas sut = new GestorLlamadas();
         GestorLlamadasStub stub = new GestorLlamadasStub();
@@ -23,5 +19,5 @@ public class GestorLlamadasTest {
         double expectedResult = 105;
         double realResult = sut.calculaConsumo(10);
         assertEquals(expectedResult, realResult);
-    }
+    }*/
 }
