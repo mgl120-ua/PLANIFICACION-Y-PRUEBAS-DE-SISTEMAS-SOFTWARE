@@ -1,2 +1,2 @@
-public class CalendarioException extends Throwable {
+public class CalendarioException extends Exception {
 }

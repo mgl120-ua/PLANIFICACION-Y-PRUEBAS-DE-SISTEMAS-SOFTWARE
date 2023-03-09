@@ -1,6 +1,6 @@
 package ppss.ejercicio2;
 
-public class GestorLlamadas1 {
+public class GestorLlamadas2 {
     private static final double TARIFA_NOCTURNA=10.5;
     private static final double TARIFA_DIURNA=20.8;
     public Calendario getCalendario() {

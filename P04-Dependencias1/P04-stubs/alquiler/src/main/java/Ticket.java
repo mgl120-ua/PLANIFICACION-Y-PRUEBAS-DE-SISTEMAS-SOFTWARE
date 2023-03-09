@@ -1,7 +1,9 @@
 public class Ticket {
     private float precio_final;
-
-    public void setPrecio_final(float precioTotal) {
+    public void setPrecio_final(float precio){
+        this.precio_final = precio;
     }
-    //getters y setters
+    public float getPrecio_final(){
+        return precio_final;
+    }
 }
