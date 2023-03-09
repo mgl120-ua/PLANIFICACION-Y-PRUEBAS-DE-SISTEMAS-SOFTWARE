@@ -38,11 +38,7 @@ public class AlquilaCochesTest {
         sut.calendario = new CalendarioStub();
         ServicioStub servicio = new ServicioStub();
         sut.setServicio(servicio);
-        //Ticket esperado = new Ticket();
-        //esperado.setPrecio_final(62.5f);
         LocalDate fecha = LocalDate.of(2023, 04, 17);
-        //Ticket real = sut.calculaPrecio(TipoCoche.TURISMO, fecha, 8);
-        //assertEquals(esperado.getPrecio_final(), real.getPrecio_final());
         MensajeException exception = assertThrows(MensajeException.class, () -> sut.calculaPrecio(TipoCoche.TURISMO, fecha, 8));
         assertEquals("Error en dia: 2023-04-18; Error en dia: 2023-04-21; Error en dia: 2023-04-22; ", exception.getMessage());
     }

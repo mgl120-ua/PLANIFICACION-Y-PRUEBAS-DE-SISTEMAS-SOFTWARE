@@ -1,7 +1,10 @@
 package ppss;
 
-public class Opercion implements IOperacionBO{
+import ppss.excepciones.IsbnInvalidoException;
+import ppss.excepciones.JDBCException;
+import ppss.excepciones.SocioInvalidoException;
 
+public class Operacion implements IOperacionBO{
     @Override
     public void operacionReserva(String socio, String isbn) throws IsbnInvalidoException, JDBCException, SocioInvalidoException {
         throw new UnsupportedOperationException ("Not yet implemented");
