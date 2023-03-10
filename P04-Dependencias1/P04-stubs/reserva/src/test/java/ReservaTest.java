@@ -40,12 +40,13 @@ public class ReservaTest {
         assertEquals("SOCIO invalido; ", exception.getMessage());
     }
 
-    /*@Test
+    @Test
     public void realizaReservaC5(){
         ReservaTestable sut = new ReservaTestable();
         OperacionStub stub = new OperacionStub();
         Factoria.setOperacion(stub);
+        stub.setFalloConexion(false);
         ReservaException exception = assertThrows(ReservaException.class, () -> sut.realizaReserva("ppss","ppss","Luis", new String[]{"11111","22222"}));
         assertEquals("CONEXION invalida; ", exception.getMessage());
-    }*/
+    }
 }
