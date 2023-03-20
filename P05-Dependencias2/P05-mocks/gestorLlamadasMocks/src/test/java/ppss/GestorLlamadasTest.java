@@ -3,15 +3,12 @@ package ppss;
 import org.easymock.IMocksControl;
 import org.junit.jupiter.api.Test;
 import org.easymock.EasyMock;
-import ppss.Calendario;
-import ppss.GestorLlamadas;
 import static org.easymock.EasyMock.partialMockBuilder;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GestorLlamadasTest {
     @Test
     public void GestorLlamadasC1(){
-        GestorLlamadas sut = new GestorLlamadas();
         //Inicializamos
         IMocksControl ctrl = EasyMock.createStrictControl();
         GestorLlamadas mock1 =  partialMockBuilder(GestorLlamadas.class).addMockedMethod("getCalendario").mock(ctrl);
@@ -34,7 +31,6 @@ public class GestorLlamadasTest {
 
     @Test
     public void GestorLlamadasC2(){
-        GestorLlamadas sut = new GestorLlamadas();
 
         IMocksControl ctrl = EasyMock.createStrictControl();
         GestorLlamadas mock1 =  partialMockBuilder(GestorLlamadas.class).addMockedMethod("getCalendario").mock(ctrl);

@@ -19,12 +19,13 @@ public class PremioTest {
 
         EasyMock.expect(mock1.generaNumero()).andReturn(0.07f);
         Assertions.assertDoesNotThrow(()->
-            EasyMock.expect(mock2.obtenerPremio()).andReturn("entrada final Champions")
+                EasyMock.expect(mock2.obtenerPremio()).andReturn("entrada final Champions")
         );
+        mock1.cliente = mock2;
 
         ctrl.replay();
 
-        String result = sut.compruebaPremio();
+        String result = mock1.compruebaPremio();
         assertEquals("Premiado con entrada final Champions", result);
 
         ctrl.verify();
@@ -42,25 +43,27 @@ public class PremioTest {
         Assertions.assertDoesNotThrow(()->
                 EasyMock.expect(mock2.obtenerPremio()).andThrow(new ClienteWebServiceException())
         );
+        mock1.cliente = mock2;
 
         ctrl.replay();
 
-        String result = sut.compruebaPremio();
+        String result = mock1.compruebaPremio();
         assertEquals("No se ha podido obtener el premio", result);
 
         ctrl.verify();
     }
+
     @Test
     public  void compruebaPremioC3(){
         Premio sut = new Premio();
 
         Premio mock =  partialMockBuilder(Premio.class).addMockedMethod("generaNumero").mock();
 
-        EasyMock.expect(mock.generaNumero()).andReturn(0.03f);
+        EasyMock.expect(mock.generaNumero()).andReturn(0.3f);
 
         EasyMock.replay(mock);
 
-        String result = sut.compruebaPremio();
+        String result = mock.compruebaPremio();
         EasyMock.verify(mock);
         assertEquals("Sin premio", result);
     }
