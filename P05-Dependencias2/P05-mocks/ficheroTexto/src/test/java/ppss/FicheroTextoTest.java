@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.FileReader;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.Assert.*;
 
 
 public class FicheroTextoTest {
@@ -20,7 +19,7 @@ public class FicheroTextoTest {
 
         Assertions.assertDoesNotThrow(()->{
             EasyMock.expect(mock1.getFichero("src/test/resources/ficheroC1.txt")).andReturn(mock2);
-            EasyMock.expect(mock2.read()).andReturn(1).times(2).andThrow(new IOException("src/test/resources/ficheroC1.txt"));
+            EasyMock.expect(mock2.read()).andReturn((int) 'a').andReturn((int) 'b').andThrow(new IOException("src/test/resources/ficheroC1.txt"));
         });
 
         ctrl.replay();
@@ -39,7 +38,7 @@ public class FicheroTextoTest {
 
         Assertions.assertDoesNotThrow(()->{
             EasyMock.expect(mock1.getFichero("src/test/resources/ficheroC1.txt")).andReturn(mock2);
-            EasyMock.expect(mock2.read()).andReturn(1).times(3).andReturn(-1);
+            EasyMock.expect(mock2.read()).andReturn((int) 'a').andReturn((int) 'b').andReturn((int) 'c').andReturn(-1);
             mock2.close();
         });
 
