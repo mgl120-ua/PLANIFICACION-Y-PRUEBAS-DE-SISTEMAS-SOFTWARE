@@ -1,5 +1,11 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,6 +59,30 @@ public class CineTest {
         assertAll(
                 () -> assertEquals(false,  assertDoesNotThrow(()-> cine.reservaButacasV1(asientos,solicitados), "Ha saltado la excepcion")),
                 ()-> assertArrayEquals(asientosEsperados , asientos)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("casosDePrueba")
+    public void reservaButacasC5(boolean esperado, boolean[] asientosEsperados, boolean[] asientos, int solicitados){
+        assertAll(
+                () -> assertEquals(esperado,  assertDoesNotThrow(()-> cine.reservaButacasV1(asientos,solicitados), "Ha saltado la excepcion")),
+                ()-> assertArrayEquals(asientosEsperados , asientos)
+        );
+    }
+
+    private static Stream<Arguments> casosDePrueba(){
+        boolean[] asientos2 = new boolean[0];
+        boolean[] asientosEsperados2 = new boolean[0];
+        boolean[] asientos3 = new boolean[]{false, false, false, true, true};
+        boolean[] asientosEsperados3 = new boolean[]{true, true, false, true, true};
+        boolean[] asientos4 = new boolean[]{true, true, true};
+        boolean[] asientosEsperados4 = new boolean[]{true, true, true};
+
+        return Stream.of(
+            Arguments.of(false, asientosEsperados2, asientos2, 0),
+            Arguments.of(true, asientosEsperados3, asientos3, 2),
+            Arguments.of(false, asientosEsperados4, asientos4, 1)
         );
     }
 }
