@@ -9,7 +9,7 @@ public class GestorLlamadasTest1 {
         GestorLlamadasStub1 stub = new GestorLlamadasStub1();
         stub.setHora(15);
         double expectedResult = 208;
-        double realResult = sut.calculaConsumo(10);
+        double realResult = stub.calculaConsumo(10);
         assertEquals(expectedResult, realResult);
     }
 
